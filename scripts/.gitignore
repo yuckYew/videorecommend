@@ -1,0 +1,4 @@
+# scripts gitignore
+
+# IMDb movie data
+movie_data.json

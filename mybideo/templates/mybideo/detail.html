@@ -1,0 +1,8 @@
+<h1>{{ movie.movie_title }}</h1>
+
+<h2>Genre:</h2>
+<ul>
+{% for movie_data in movie.movie_data_set.all %}
+    <li>{{ movie_data.movie_data_genre }}</li>
+{% endfor %}
+</ul>

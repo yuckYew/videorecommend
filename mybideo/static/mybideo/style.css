@@ -1,0 +1,11 @@
+li {
+    display: inline;
+}
+
+li a {
+    color: green;
+}
+
+img {
+    height: 150px;
+}

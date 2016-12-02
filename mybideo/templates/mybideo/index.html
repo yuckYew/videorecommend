@@ -1,7 +1,11 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'mybideo/style.css' %}" />
+
 {% if movie_list %}
     <ul>
     {% for movie in movie_list %}
-    <li><a href="{% url 'mybideo:detail' movie.id %}">{{ movie.movie_title }}</a></li>
+    <li><a href="{% url 'mybideo:detail' movie.id %}"><img src="{% static movie.image_path %}")>{{ movie.movie_title }}</a></li>
     {% endfor %}
     </ul>
 {% else %}

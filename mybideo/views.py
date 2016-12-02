@@ -1,14 +1,19 @@
-from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, render
+from django.http import HttpResponse, HttpResponseRedirect
+from django.urls import reverse
+from django.views import generic
 
-from .models import Movie
+from .models import Movie, Movie_data
 
 # Create your views here.
-def index(request):
-    movie_list = Movie.objects.all()
-    context = {'movie_list': movie_list}
-    return render(request, 'mybideo/index.html', context)
+class IndexView(generic.ListView):
+    template_name = 'mybideo/index.html'
+    context_object_name = 'movie_list'
 
-def detail(request, movie_id):
-    movie = get_object_or_404(Movie, pk=movie_id)
-    return render(request, 'mybideo/detail.html', {'movie': movie})
+    def get_queryset(self):
+        """Return list of movies"""
+        return Movie.objects.all()
+
+class DetailView(generic.DetailView):
+    model = Movie
+    template_name = 'mybideo/detail.html'

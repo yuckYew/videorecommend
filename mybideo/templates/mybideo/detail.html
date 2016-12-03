@@ -1,9 +1,14 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'mybideo/style.css' %}" />
+
+
 <h1>{{ movie.movie_title }}</h1>
 <img src="{% static movie.image_path %}")>
 
 <h2>Genre:</h2>
 <ul>
-{% for movie_data in movie.movie_data_set.all %}
-    <li>{{ movie_data.movie_data_genre }}</li>
+{% for mi in movie.movieinfo_set.all %}
+    <li>{{ mi.movie_genre }}</li>
 {% endfor %}
 </ul>

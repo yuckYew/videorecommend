@@ -3,7 +3,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 from django.views import generic
 
-from .models import Movie, Movie_data
+from .models import Movie, MovieInfo
 
 # Create your views here.
 class IndexView(generic.ListView):

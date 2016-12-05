@@ -1,0 +1,25 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'mybideo/style.css' %}" />
+
+
+<body>
+<center>
+<h1>What to Watch Tonight?</h1>
+
+{% if movie_list %}
+<table>
+    <tr>
+    {% for movie in movie_list %}
+        <td>
+            <a href="{% url 'mybideo:detail' movie.id %}"><img src="{% static movie.image_path %}")></a>
+            </br>
+            <a href="{% url 'mybideo:detail' movie.id %}">{{ movie.movie_title }}</a>
+        </td>
+    {% endfor %}
+    </tr>
+</table>
+{% else %}
+    <p>No movies are available.</p>
+{% endif %}
+</center>
+</body>

@@ -6,9 +6,18 @@
 <h1>{{ movie.movie_title }}</h1>
 <img src="{% static movie.image_path %}")>
 
+<h2>Director:</h2>
+<ul>
+{% for mi in movie.movieinfo_set.all %}
+    {% if mi.movie_director %}
+        <li><strong>{{ mi.movie_director }}</strong></li>
+    {% endif %}
+{% endfor %}
+</ul>
+
 <h2>Genre:</h2>
 <ul>
 {% for mi in movie.movieinfo_set.all %}
-    <li>{{ mi.movie_genre }}</li>
+    <li><strong>{{ mi.movie_genre }}</strong></li>
 {% endfor %}
 </ul>

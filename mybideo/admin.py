@@ -1,9 +1,9 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Movie, MovieInfo, MovieGenre
+from .models import Movie, MovieInfo, MovieGenre, MovieDirector
 
-class MovieInfoInline(admin.StackedInline):
+class MovieInfoInline(admin.TabularInline):
     model = MovieInfo
     extra = 1
 
@@ -13,5 +13,7 @@ class MovieAdmin(admin.ModelAdmin):
         ('Image path',      {'fields': ['image_path']}),
     ]
     inlines = [MovieInfoInline]
+
 admin.site.register(Movie, MovieAdmin)
 admin.site.register(MovieGenre)
+admin.site.register(MovieDirector)

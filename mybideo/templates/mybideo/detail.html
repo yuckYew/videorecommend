@@ -18,6 +18,17 @@
 <h2>Genre:</h2>
 <ul>
 {% for mi in movie.movieinfo_set.all %}
-    <li><strong>{{ mi.movie_genre }}</strong></li>
+    {% if mi.movie_genre %}
+        <li><strong>{{ mi.movie_genre }}</strong></li>
+    {% endif %}
+{% endfor %}
+</ul>
+
+<h2>Stars:</h2>
+<ul>
+{% for mi in movie.movieinfo_set.all %}
+    {% if mi.movie_cast %}
+        <li><strong>{{ mi.movie_cast }}</strong></li>
+    {% endif %}
 {% endfor %}
 </ul>
